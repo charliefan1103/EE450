@@ -1,0 +1,22 @@
+No.     Time           Source                Destination           Protocol Length Info
+   2267 68.627580000   0.0.0.0               255.255.255.255       DHCP     342    DHCP Discover - Transaction ID 0x166addd9
+
+Frame 2267: 342 bytes on wire (2736 bits), 342 bytes captured (2736 bits) on interface 0
+Ethernet II, Src: Apple_13:67:97 (c4:2c:03:13:67:97), Dst: Broadcast (ff:ff:ff:ff:ff:ff)
+Internet Protocol Version 4, Src: 0.0.0.0 (0.0.0.0), Dst: 255.255.255.255 (255.255.255.255)
+    Version: 4
+    Header length: 20 bytes
+    Differentiated Services Field: 0x00 (DSCP 0x00: Default; ECN: 0x00: Not-ECT (Not ECN-Capable Transport))
+    Total Length: 328
+    Identification: 0x770f (30479)
+    Flags: 0x00
+    Fragment offset: 0
+    Time to live: 255
+    Protocol: UDP (17)
+    Header checksum: 0x4396 [correct]
+    Source: 0.0.0.0 (0.0.0.0)
+    Destination: 255.255.255.255 (255.255.255.255)
+    [Source GeoIP: Unknown]
+    [Destination GeoIP: Unknown]
+User Datagram Protocol, Src Port: bootpc (68), Dst Port: bootps (67)
+Bootstrap Protocol

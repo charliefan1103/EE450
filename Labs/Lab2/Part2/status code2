@@ -1,0 +1,21 @@
+No.     Time           Source                Destination           Protocol Length Info
+      7 3.181669000    192.168.0.16          128.119.245.12        HTTP     433    GET /wireshark-labs/HTTP-wireshark-file1.html HTTP/1.1 
+
+Frame 7: 433 bytes on wire (3464 bits), 433 bytes captured (3464 bits) on interface 0
+Ethernet II, Src: Apple_8f:e7:b7 (d8:a2:5e:8f:e7:b7), Dst: Netgear_4c:ec:47 (30:46:9a:4c:ec:47)
+Internet Protocol Version 4, Src: 192.168.0.16 (192.168.0.16), Dst: 128.119.245.12 (128.119.245.12)
+Transmission Control Protocol, Src Port: 51672 (51672), Dst Port: http (80), Seq: 1, Ack: 1, Len: 367
+Hypertext Transfer Protocol
+    GET /wireshark-labs/HTTP-wireshark-file1.html HTTP/1.1\r\n
+        [Expert Info (Chat/Sequence): GET /wireshark-labs/HTTP-wireshark-file1.html HTTP/1.1\r\n]
+        Request Method: GET
+        Request URI: /wireshark-labs/HTTP-wireshark-file1.html
+        Request Version: HTTP/1.1
+    Host: gaia.cs.umass.edu\r\n
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.57.2 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2\r\n
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n
+    Accept-Language: en-us\r\n
+    Accept-Encoding: gzip, deflate\r\n
+    Connection: keep-alive\r\n
+    \r\n
+    [Full request URI: http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file1.html]

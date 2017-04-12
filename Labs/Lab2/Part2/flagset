@@ -1,0 +1,136 @@
+No.     Time           Source                Destination           Protocol Length Info
+      7 3.181669000    192.168.0.16          128.119.245.12        HTTP     433    GET /wireshark-labs/HTTP-wireshark-file1.html HTTP/1.1 
+
+Frame 7: 433 bytes on wire (3464 bits), 433 bytes captured (3464 bits) on interface 0
+Ethernet II, Src: Apple_8f:e7:b7 (d8:a2:5e:8f:e7:b7), Dst: Netgear_4c:ec:47 (30:46:9a:4c:ec:47)
+Internet Protocol Version 4, Src: 192.168.0.16 (192.168.0.16), Dst: 128.119.245.12 (128.119.245.12)
+Transmission Control Protocol, Src Port: 51672 (51672), Dst Port: http (80), Seq: 1, Ack: 1, Len: 367
+    Source port: 51672 (51672)
+    Destination port: http (80)
+    [Stream index: 0]
+    Sequence number: 1    (relative sequence number)
+    [Next sequence number: 368    (relative sequence number)]
+    Acknowledgment number: 1    (relative ack number)
+    Header length: 32 bytes
+    Flags: 0x018 (PSH, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 1... = Push: Set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+    Window size value: 65535
+    [Calculated window size: 524280]
+    [Window size scaling factor: 8]
+    Checksum: 0xe8d4 [validation disabled]
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+    [SEQ/ACK analysis]
+Hypertext Transfer Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+      9 3.285005000    128.119.245.12        192.168.0.16          HTTP     494    HTTP/1.1 200 OK  (text/html)
+
+Frame 9: 494 bytes on wire (3952 bits), 494 bytes captured (3952 bits) on interface 0
+Ethernet II, Src: Netgear_4c:ec:47 (30:46:9a:4c:ec:47), Dst: Apple_8f:e7:b7 (d8:a2:5e:8f:e7:b7)
+Internet Protocol Version 4, Src: 128.119.245.12 (128.119.245.12), Dst: 192.168.0.16 (192.168.0.16)
+Transmission Control Protocol, Src Port: http (80), Dst Port: 51672 (51672), Seq: 1, Ack: 368, Len: 428
+    Source port: http (80)
+    Destination port: 51672 (51672)
+    [Stream index: 0]
+    Sequence number: 1    (relative sequence number)
+    [Next sequence number: 429    (relative sequence number)]
+    Acknowledgment number: 368    (relative ack number)
+    Header length: 32 bytes
+    Flags: 0x018 (PSH, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 1... = Push: Set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+    Window size value: 54
+    [Calculated window size: 6912]
+    [Window size scaling factor: 128]
+    Checksum: 0x6f68 [validation disabled]
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+    [SEQ/ACK analysis]
+Hypertext Transfer Protocol
+Line-based text data: text/html
+
+No.     Time           Source                Destination           Protocol Length Info
+     17 5.504370000    192.168.0.16          74.125.224.201        HTTP     167    POST /safebrowsing/downloads?pver=2.2&client=Safari&appver=5.1.7 HTTP/1.1  (application/x-www-form-urlencoded)
+
+Frame 17: 167 bytes on wire (1336 bits), 167 bytes captured (1336 bits) on interface 0
+Ethernet II, Src: Apple_8f:e7:b7 (d8:a2:5e:8f:e7:b7), Dst: Netgear_4c:ec:47 (30:46:9a:4c:ec:47)
+Internet Protocol Version 4, Src: 192.168.0.16 (192.168.0.16), Dst: 74.125.224.201 (74.125.224.201)
+Transmission Control Protocol, Src Port: 51673 (51673), Dst Port: http (80), Seq: 723, Ack: 1, Len: 101
+    Source port: 51673 (51673)
+    Destination port: http (80)
+    [Stream index: 1]
+    Sequence number: 723    (relative sequence number)
+    [Next sequence number: 824    (relative sequence number)]
+    Acknowledgment number: 1    (relative ack number)
+    Header length: 32 bytes
+    Flags: 0x018 (PSH, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 1... = Push: Set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+    Window size value: 65535
+    [Calculated window size: 524280]
+    [Window size scaling factor: 8]
+    Checksum: 0xf991 [validation disabled]
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+    [SEQ/ACK analysis]
+    TCP segment data (101 bytes)
+[2 Reassembled TCP Segments (823 bytes): #16(722), #17(101)]
+Hypertext Transfer Protocol
+Line-based text data: application/x-www-form-urlencoded
+
+No.     Time           Source                Destination           Protocol Length Info
+     20 5.559537000    74.125.224.201        192.168.0.16          HTTP     1328   HTTP/1.1 200 OK  (application/vnd.google.safebrowsing-update)
+
+Frame 20: 1328 bytes on wire (10624 bits), 1328 bytes captured (10624 bits) on interface 0
+Ethernet II, Src: Netgear_4c:ec:47 (30:46:9a:4c:ec:47), Dst: Apple_8f:e7:b7 (d8:a2:5e:8f:e7:b7)
+Internet Protocol Version 4, Src: 74.125.224.201 (74.125.224.201), Dst: 192.168.0.16 (192.168.0.16)
+Transmission Control Protocol, Src Port: http (80), Dst Port: 51673 (51673), Seq: 1, Ack: 824, Len: 1262
+    Source port: http (80)
+    Destination port: 51673 (51673)
+    [Stream index: 1]
+    Sequence number: 1    (relative sequence number)
+    [Next sequence number: 1263    (relative sequence number)]
+    Acknowledgment number: 824    (relative ack number)
+    Header length: 32 bytes
+    Flags: 0x018 (PSH, ACK)
+        000. .... .... = Reserved: Not set
+        ...0 .... .... = Nonce: Not set
+        .... 0... .... = Congestion Window Reduced (CWR): Not set
+        .... .0.. .... = ECN-Echo: Not set
+        .... ..0. .... = Urgent: Not set
+        .... ...1 .... = Acknowledgment: Set
+        .... .... 1... = Push: Set
+        .... .... .0.. = Reset: Not set
+        .... .... ..0. = Syn: Not set
+        .... .... ...0 = Fin: Not set
+    Window size value: 245
+    [Calculated window size: 15680]
+    [Window size scaling factor: 64]
+    Checksum: 0x8608 [validation disabled]
+    Options: (12 bytes), No-Operation (NOP), No-Operation (NOP), Timestamps
+    [SEQ/ACK analysis]
+Hypertext Transfer Protocol
+Media Type

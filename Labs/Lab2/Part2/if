@@ -1,0 +1,117 @@
+No.     Time        Source                Destination           Protocol Length Info
+      8 2.331268    192.168.1.102         128.119.245.12        HTTP     555    GET /ethereal-labs/lab2-2.html HTTP/1.1 
+
+Frame 8: 555 bytes on wire (4440 bits), 555 bytes captured (4440 bits)
+Ethernet II, Src: DellComp_4f:36:23 (00:08:74:4f:36:23), Dst: LinksysG_da:af:73 (00:06:25:da:af:73)
+Internet Protocol Version 4, Src: 192.168.1.102 (192.168.1.102), Dst: 128.119.245.12 (128.119.245.12)
+Transmission Control Protocol, Src Port: 4247 (4247), Dst Port: http (80), Seq: 1, Ack: 1, Len: 501
+Hypertext Transfer Protocol
+    GET /ethereal-labs/lab2-2.html HTTP/1.1\r\n
+        [Expert Info (Chat/Sequence): GET /ethereal-labs/lab2-2.html HTTP/1.1\r\n]
+            [Message: GET /ethereal-labs/lab2-2.html HTTP/1.1\r\n]
+            [Severity level: Chat]
+            [Group: Sequence]
+        Request Method: GET
+        Request URI: /ethereal-labs/lab2-2.html
+        Request Version: HTTP/1.1
+    Host: gaia.cs.umass.edu\r\n
+    User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.0.2) Gecko/20021120 Netscape/7.01\r\n
+    Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,video/x-mng,image/png,image/jpeg,image/gif;q=0.2,text/css,*/*;q=0.1\r\n
+    Accept-Language: en-us, en;q=0.50\r\n
+    Accept-Encoding: gzip, deflate, compress;q=0.9\r\n
+    Accept-Charset: ISO-8859-1, utf-8;q=0.66, *;q=0.66\r\n
+    Keep-Alive: 300\r\n
+    Connection: keep-alive\r\n
+    \r\n
+    [Full request URI: http://gaia.cs.umass.edu/ethereal-labs/lab2-2.html]
+
+No.     Time        Source                Destination           Protocol Length Info
+     10 2.357902    128.119.245.12        192.168.1.102         HTTP     739    HTTP/1.1 200 OK  (text/html)
+
+Frame 10: 739 bytes on wire (5912 bits), 739 bytes captured (5912 bits)
+Ethernet II, Src: LinksysG_da:af:73 (00:06:25:da:af:73), Dst: DellComp_4f:36:23 (00:08:74:4f:36:23)
+Internet Protocol Version 4, Src: 128.119.245.12 (128.119.245.12), Dst: 192.168.1.102 (192.168.1.102)
+Transmission Control Protocol, Src Port: http (80), Dst Port: 4247 (4247), Seq: 1, Ack: 502, Len: 685
+Hypertext Transfer Protocol
+    HTTP/1.1 200 OK\r\n
+        [Expert Info (Chat/Sequence): HTTP/1.1 200 OK\r\n]
+            [Message: HTTP/1.1 200 OK\r\n]
+            [Severity level: Chat]
+            [Group: Sequence]
+        Request Version: HTTP/1.1
+        Status Code: 200
+        Response Phrase: OK
+    Date: Tue, 23 Sep 2003 05:35:50 GMT\r\n
+    Server: Apache/2.0.40 (Red Hat Linux)\r\n
+    Last-Modified: Tue, 23 Sep 2003 05:35:00 GMT\r\n
+    ETag: "1bfef-173-8f4ae900"\r\n
+    Accept-Ranges: bytes\r\n
+    Content-Length: 371\r\n
+    Keep-Alive: timeout=10, max=100\r\n
+    Connection: Keep-Alive\r\n
+    Content-Type: text/html; charset=ISO-8859-1\r\n
+    \r\n
+Line-based text data: text/html
+    \n
+    <html>\n
+    \n
+    Congratulations again!  Now you've downloaded the file lab2-2.html. <br>\n
+    This file's last modification date will not change.  <p>\n
+    Thus  if you download this multiple times on your browser, a complete copy <br>\n
+    will only be sent once by the server due to the inclusion of the IN-MODIFIED-SINCE<br>\n
+    field in your browser's HTTP GET request to the server.\n
+    \n
+    </html>\n
+
+No.     Time        Source                Destination           Protocol Length Info
+     14 5.517390    192.168.1.102         128.119.245.12        HTTP     668    GET /ethereal-labs/lab2-2.html HTTP/1.1 
+
+Frame 14: 668 bytes on wire (5344 bits), 668 bytes captured (5344 bits)
+Ethernet II, Src: DellComp_4f:36:23 (00:08:74:4f:36:23), Dst: LinksysG_da:af:73 (00:06:25:da:af:73)
+Internet Protocol Version 4, Src: 192.168.1.102 (192.168.1.102), Dst: 128.119.245.12 (128.119.245.12)
+Transmission Control Protocol, Src Port: 4247 (4247), Dst Port: http (80), Seq: 502, Ack: 686, Len: 614
+Hypertext Transfer Protocol
+    GET /ethereal-labs/lab2-2.html HTTP/1.1\r\n
+        [Expert Info (Chat/Sequence): GET /ethereal-labs/lab2-2.html HTTP/1.1\r\n]
+            [Message: GET /ethereal-labs/lab2-2.html HTTP/1.1\r\n]
+            [Severity level: Chat]
+            [Group: Sequence]
+        Request Method: GET
+        Request URI: /ethereal-labs/lab2-2.html
+        Request Version: HTTP/1.1
+    Host: gaia.cs.umass.edu\r\n
+    User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.0.2) Gecko/20021120 Netscape/7.01\r\n
+    Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,video/x-mng,image/png,image/jpeg,image/gif;q=0.2,text/css,*/*;q=0.1\r\n
+    Accept-Language: en-us, en;q=0.50\r\n
+    Accept-Encoding: gzip, deflate, compress;q=0.9\r\n
+    Accept-Charset: ISO-8859-1, utf-8;q=0.66, *;q=0.66\r\n
+    Keep-Alive: 300\r\n
+    Connection: keep-alive\r\n
+    If-Modified-Since: Tue, 23 Sep 2003 05:35:00 GMT\r\n
+    If-None-Match: "1bfef-173-8f4ae900"\r\n
+    Cache-Control: max-age=0\r\n
+    \r\n
+    [Full request URI: http://gaia.cs.umass.edu/ethereal-labs/lab2-2.html]
+
+No.     Time        Source                Destination           Protocol Length Info
+     15 5.540216    128.119.245.12        192.168.1.102         HTTP     243    HTTP/1.1 304 Not Modified 
+
+Frame 15: 243 bytes on wire (1944 bits), 243 bytes captured (1944 bits)
+Ethernet II, Src: LinksysG_da:af:73 (00:06:25:da:af:73), Dst: DellComp_4f:36:23 (00:08:74:4f:36:23)
+Internet Protocol Version 4, Src: 128.119.245.12 (128.119.245.12), Dst: 192.168.1.102 (192.168.1.102)
+Transmission Control Protocol, Src Port: http (80), Dst Port: 4247 (4247), Seq: 686, Ack: 1116, Len: 189
+Hypertext Transfer Protocol
+    HTTP/1.1 304 Not Modified\r\n
+        [Expert Info (Chat/Sequence): HTTP/1.1 304 Not Modified\r\n]
+            [Message: HTTP/1.1 304 Not Modified\r\n]
+            [Severity level: Chat]
+            [Group: Sequence]
+        Request Version: HTTP/1.1
+        Status Code: 304
+        Response Phrase: Not Modified
+    Date: Tue, 23 Sep 2003 05:35:53 GMT\r\n
+    Server: Apache/2.0.40 (Red Hat Linux)\r\n
+    Connection: Keep-Alive\r\n
+    Keep-Alive: timeout=10, max=99\r\n
+    ETag: "1bfef-173-8f4ae900"\r\n
+    \r\n
