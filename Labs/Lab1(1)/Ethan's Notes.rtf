@@ -1,0 +1,349 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww9920\viewh14000\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 EE450\
+Ethan Chan\
+Lab 1\
+\
+Algorithm:\
+In EE 357 on 1/22/13 we learned about different kinds of data types including lists, vectors, ring, and tree. I think this lab will utilize the tree and parent idea. \
+1) Mark all nodes as unexplored or white\
+2) Start at (first) source node\
+3) Mark explored node as explored (gray)\
+4) Use routing table to find neighbors\
+5) Store distance and parent of neighbor node\
+6) Explore neighbor corresponding to cost and mark as gray\
+7) Repeat steps 5 and 6 until all neighbors are explored\
+8) Go to the first neighbor that was explored and explore its neighbors\
+9) Add the cost between the two nodes to the sum of cost and store it in a new sum of cost and update parent nod\
+\
+\
+Using Dijkstra's shortest path algorithm.\
+\
+Dijkstra's algorithm should be run n times for a network of n routers to find the shortest path from every nod in the network to the rest of the nodes.\
+\
+NOTE: The node names in this lab should be case-insensitive\
+\
+Specific Topology\
+\
+File I/O is needed\
+\
+Read in files and have in interface for the user to enter the source node\
+\
+use the ifstream class\
+\
+Slides\
+Check out EE 355 Lec 18 Toposort\
+Debugging advice in Lec 2a\
+Set Width: Lec 2b\
+Char b = 'c': defined in Lec 2a\
+Initializing arrays: Lec 2b\
+\
+Possible bugs: not including the proper library, passing by reference\
+\
+C++ important information included: prototypes, File I/O, pass by reference, #include <ifstream> libraries, DFS, BFS, linked list, tree, predecessor, argc char *argv[], these could be used in command line to intake files, (argc =7\
+\
+\
+Compiling: Simply give letters of nodes and no need to type "Node A" but only "A"\
+\
+// Assumption that nodes are singly connected with each other\
+#include <iostream>	// Almost always included\
+#include <iomanip>	// \
+#include <cstdlib>		// for rand() function which returns a number from 0 to RAND_MAX\
+#include <stdio.h>		// dunno what for lec 2b\
+#include <cstring>		// char str1[6] = "Hello" probably don't need\
+#include <string>\
+#include <fstream>		//for reading and writing files\
+#include <utility>		// for pair template?\
+#include <map>\
+#include <set>\
+#include <vector>\
+\
+using namespace std;\
+\
+// declare prototypes here;\
+void routing(string, int &, string [], int []);\
+string lowercase(string);\
+string uppercase(string);\
+\
+\
+int main(int argc, char *argv[])\
+\{\
+\
+string all[5] = \{"A", "B", "C", "D", "E", "F"\};\
+string final[5];\
+string hold, hold2;\
+map<string, pair*> nodes;		//data table number 2\
+string source;\
+string initialsource;\
+pair<string, int> shortest;	//string indicates the neighbor that is closest to the source node and int is the total distance\
+set<string> explored;\
+\
+int cost[5];\
+string neighbor[5];	//all neighbors from routing are given as uppercase\
+int i;\
+int count;\
+int totalcost = 0;\
+\
+cout << "Enter the source node" << endl;\
+\
+cin << source;\
+\
+initialsource = uppercase(source);\
+\
+if( (lowercase(source) == "NULL") )\{\
+	cout << "Invalid source node. Input must be one of the following: A, a, B, b, C, c, D, d, E, e, F, f" << end;\
+\}\
+\
+else\
+\{\
+	explored.insert(uppercase(source));		//stored source as explored\
+\
+	routing(lowercase(source), i, neighbor, cost);	// neighbors and their costs of source node are now stored in global variables\
+	shortest.second = cost[i];		// assume that the last neighbor explored has the shortest route\
+	for(int j = i; j >=0; j--)			// iterates through all neighbors and their costs\
+	\{\
+		if(neighbor[j] == uppercase(source))			//checks to see if source node is connect to itself\
+		\{\
+			// do nothing\
+		\}\
+		else\
+		\{\
+			if(cost[j] < shortest.second)\{			//stores neighbor with the shortest distance from the source node\
+				shortest.first = neighbor[j];\
+				shortest.second = cost[j];\
+			\}\
+			pair<string, int> *input = new pair<string, int>;			// pair stores parent node and total cost			input->first = uppercase(source);\
+			input->second = cost[j];			//make sure we're using j not i;\
+			nodes[neighbor[j]] = input;			//BE CAREFUL SEGMENTATION FAULT CAN RESULT FROM CALLING MAP THAT DOESN'T EXIST node["node A"]\
+			\
+		\}\
+	\}\
+\
+// neighbors and their costs of source node are now stored in map nodes\
+// find the node with the shortest route from the source node and go explore his neighbors until all the nodes have been explored\
+\
+\
+while ( (explored.find("A") == explored.end()) || (explored.find("B") == explored.end()) || (explored.find("C") == explored.end()) || (explored.find("D") == explored.end()) || (explored.find("E") == explored.end()) || (explored.find("F") == explored.end()) )\
+\{\
+\
+\
+	source = shortest.first;		//new source\
+	explored.insert(uppercase(source));		//stored source in explored\
+	routing(lowercase(source), i , neighbor, cost);\
+	shortest.second = cost[i] + nodes[uppercase(source)]->second;	//assumes that the last neighbor explored has the shortest total route from the initial source now that we're at the new source\
+	for(int y = 0; y <= i; y++)\
+	\{\
+		totalcost = cost[j] + nodes[source]->second;		//totalcost equals total cost of new source + cost of neighbor\
+		if(explored.find(neighbor[y]) != explored.end())		//if not explored, this also checks to see if source is connected to itself\
+		\{\
+			if(nodes.find(neighbor[y]) != nodes.end())		// if path was already found, they trump paths that have been found\
+			\{\
+				if ( nodes[neighbor[y]]-second > totalcost )		//new shorter path is found for node and is updated in existing value in nodes\
+				\{\
+					nodes[neighbor[y]]->first	= source;		//new parent\
+					nodes[neighbor[y]]->second = totalcost;		/new cost        updates the shorter path\
+				\}\
+				if ( nodes[neighbor[y]]->second < shortest.second )  //checking for overall shortest path, if a node has two paths it uses the shorter one as updated\
+				\{\
+					shortest.first = neighbor[j];\
+					shortest.second = cost[j];\
+				\}\
+			\}\
+\
+			else if (nodes.find(neighbor[y] == nodes.end())		//if path was not found yet\
+			\{\
+				if( (totalcost < shortest.second) && (totalcost < nodes[shortest.first]->second) ) //stores neighbor with the shortest distance from the source node\
+				\{\
+					shortest.first = neighbor[j];\
+					shortest.second = cost[j];\
+				\}\
+					\
+				pair<string, int> *input = new pair<string, int>;		// pair stores parent node and total cost				input->first = source;\
+				input->second = cost[j];			//make sure we're using j not i;\
+				nodes[neighbor[j]] = input;			//BE CAREFUL SEGMENTATION FAULT CAN RESULT FROM CALLING MAP THAT DOESN'T EXIST node["node A"]\
+			\}\
+\
+\
+		\}\
+		else if(explored.find(neighbor[y]) == explored.end())		//if explored\
+		\{\
+			count = 0;\
+			count++\
+		\}\
+		if(count == i)		//if all the neighbors have been explored\
+		\{\
+			shortest.first = nodes[source]->first		// retraces to parent node and stores in shortest first\
+		\}\
+\
+	\}   //for second y for loop\
+\
+\}	//for while loop until all the nodes are discovered\
+\
+	// utilize pair template, map has a find function to check visited nodes, use map of pairs to store total cost and parent node, use deque to store backtracked route, map<string, pair*>, replace pairs if updated\
+\
+\}		// bracket for first else loop\
+\
+for(int w; w < 6; w++)\
+\{\
+	if(all[w] == initalsource)\
+	\{\
+		//do nothing			sequence ABCD\
+	\}\
+	else\
+	\{\
+		hold2 = nodes[all[w]]->first;		//hold2 the parent node	      hold2 = C\
+		hold = all[w];					// hold = current node	hold = D\
+		while(hold2 != initialsource)		// while parent node does not equal the source node\
+		\{\
+			hold = hold2 + hold		// hold = grandpa node + current string of grandchildren       hold = B + C + D\
+			hold2 = nodes[hold2]->first		// parent of the parent grandpa!                hold2 = A\
+		\}\
+		hold = initialsource + hold;\
+		final[w] = hold;\
+	\}\
+\
+\
+\}\
+\
+cout << "The Shortest Path from " << initialsource << " to x" << setw(5) << Total Cost << endl;\
+\
+for(int d; d < 6; d++)\
+\{\
+	if(all[d] == initailsource)\
+	\{\
+		//do nothing\
+	\}\
+	else\
+	\{\
+	cout << initialsource << " to all[d]" << ":" << setw(5) << final[d] << setw(5) << nodes[all[d]]->second << endl;\
+	\}\
+\}\
+\
+// when writing routing tables use setw(8) between items\
+// make sure to delete new pairs\
+return 0;\
+\}		// bracket for int main\
+\
+void routing(string node, int &i, string neighbor[], int cost [])  // string node will be given as an lowercase letter\
+\{\
+	string nlow = "Node " + node;\
+	string nup = "Node " + uppercase(node);\
+	string filename = "node_" + node + ".txt";\
+	string ofilename = "n" + filename;\
+	string str1, str2, str3, str4;\
+	string trash;\
+	i = 0; 		//initiallizing\
+\
+	ifstream ifile(filename);\
+\
+	ifile >> str1;\
+	ifile >> str2;\
+	str3 = str1 + " " + str2;\
+\
+	\
+\
+	if( (str3 != nlow) && (str3 != nup) )\{\
+		cout << "1st Line of Routing Table not formatted as " << nlow << " or " << nup << endl;\
+	\}\
+	else \{\
+		while (ifile.good())\{\
+			ifile >> str4;\
+			neighbor[i] = uppercase(str4);\
+			ifile >> cost[i];\
+			ifile >> trash;\
+			i++;\
+		\}\
+		i--;					// this deletes the last file I/O which reads the last input twice\
+		neighbor[i] = "NULL";\
+		cost[i] = 0;\
+\
+	\
+	\}\
+	ifile.close();\
+\
+\}\
+\
+string lowercase(string alpha)\
+\{\
+	if( (alpha == "A") || (alpha == "a") )\
+		alpha = "a";\
+	else if( (alpha == "B") || (alpha == "b") )\
+		alpha = "b";\
+	else if ( (alpha == "C") || (alpha == "c") )\
+		alpha = "c";\
+	else if ( (alpha == "D") || (alpha == "d") )\
+		alpha = "d";\
+	else if ( (alpha == "E") || (alpha == "e") )\
+		alpha = "e";\
+	else if ( (alpha == "F") || (alpha == "f") )\
+		alpha = "f";\
+	else\
+		alpha = "NULL";\
+\
+	return alpha;\
+\}\
+\
+string uppercase(string omega)\
+\{\
+	if( (omega == "a") || (omega == "A") )\
+		omega = "A";\
+	else if( (omega == "b") || (omega == "B") )\
+		omega = "B";\
+	else if ( (omega == "c") || (omega == "C") )\
+		omega = "C";\
+	else if ( (omega == "d") || (omega == "D") )\
+		omega = "D";\
+	else if ( (omega == "e") || (omega == "E") )\
+		omega = "E";\
+	else if ( (omega == "f") || (omega == "F") )\
+		alpha = "F";\
+	else\
+		alpha = "NULL";\
+\
+	return alpha;\
+\}\
+\
+/*	Extra Code\
+if( (source == 'A') || source == 'a')\{\
+	ifstream ifilea("node_a.txt");\
+	ofstream ofilea("nnode_a.txt");\
+	ifilea >> str1;\
+	ifilea >> str2;\
+	str3 = str1 + " " + str2;\
+	if( (str3 != "Node A") && (str3 != "Node a") )\{\
+		cout << "1st Line of Routing Table not formatted as Node A or Node a" << endl;\
+	\}\
+	else \{\
+		while (ifilea.good())\{\
+			ifilea >> neighbor[i];\
+			ifilea >> cost[i];\
+			ifilea >> trash;\
+			i++;\
+		\}\
+		i--;\
+		neighbor[i] = '\\0';\
+		cost[i] = 0;\
+\
+	\
+	\}\
+		\
+	\
+\
+\
+\}\
+*/\
+\
+\
+Questions: Algorithm (How do I know which node to go next?, does updating the routing table include overwriting the old routing tables or creating new ones?(Ask TA), nuke, lab report, max number of nodes (Same 6), node configuration (different, compilation steps, table two needed?, when do I stop revisiting a node? certainly not simply after the first time I visit it. You visit next nodes where the TOTAL cost from the source node is the least.\
+\
+\
+Two questions for TA: Creating new routing tables or overwriting the old ones?, output format of shortest route; TA SAYS WE ONLY NEED TO PRINT OUT THE SHORTEST PATH ONLY! go to the shortest distance and if there is more than one shortest distance then you have to store that extra value\
+\
+IT GOES A, AB, ABD // BECAUSE THIS IS THE SHORTEST TOTAL ROUTE FIRST\
+THEN IT GOES ABCD NOT ABDE //BECAUSE ALTHOUGH AC HAS THE SAME DISTANCE AS ABDE AC HAS TO BE THE SHORTEST DISTANCE TO C BECAUSE EVEN IF E IS ATTACHED TO C BY A DISTANCE OF 1 IT WOULD BE LONGER THAN AC.\
+\
+Write out files}
