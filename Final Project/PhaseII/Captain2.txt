@@ -1,0 +1,2 @@
+Resources$9876
+Confidence$5432
